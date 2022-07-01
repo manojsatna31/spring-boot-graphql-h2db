@@ -237,7 +237,7 @@ GraphQL schema for each entity is located in the separated file.
     ```
 
 #### 4. Fetch relations
-```json lines
+```json5
 departments {
     id
     name
