@@ -1,0 +1,170 @@
+http://localhost:8080/h2-console
+
+http://localhost:8080/graphiql?path=/graphql
+
+
+https://piotrminkowski.com/2020/07/31/an-advanced-guide-to-graphql-with-spring-boot/
+
+
+https://www.youtube.com/watch?v=rH2kdMPUQpQ&list=PLiwhu8iLxKwL1TU0RMM6z7TtkyW-3-5Wi&index=2&ab_channel=PhilipStarritt
+
+
+#######################################################
+{
+  employeesWithFilter(filter:{
+    salary:{
+      operator: "gt"
+      value:"12000"
+    },
+    age: {
+      operator: "gt"
+      value:"30"
+    },
+    position: {
+      operator: "eq"
+      value:"Developer"
+    }
+  }){
+    id
+    firstName
+    lastName
+    position
+  }
+}
+
+Response:
+----------
+{
+  "data": {
+    "employeesWithFilter": [
+      {
+        "id": "6",
+        "firstName": "Alan",
+        "lastName": "Murray",
+        "position": "Developer"
+      }
+    ]
+  }
+}
+#######################################################
+{
+  departments {
+    id
+    name
+    organization {
+      id
+      name
+    }
+  }
+}
+Response:
+---------
+{
+  "data": {
+    "departments": [
+      {
+        "id": "1",
+        "name": "Test1",
+        "organization": {
+          "id": "1",
+          "name": "Test1"
+        }
+      },
+      {
+        "id": "2",
+        "name": "Test2",
+        "organization": {
+          "id": "1",
+          "name": "Test1"
+        }
+      },
+      {
+        "id": "3",
+        "name": "Test3",
+        "organization": {
+          "id": "1",
+          "name": "Test1"
+        }
+      },
+      {
+        "id": "4",
+        "name": "Test4",
+        "organization": {
+          "id": "2",
+          "name": "Test2"
+        }
+      },
+      {
+        "id": "5",
+        "name": "Test5",
+        "organization": {
+          "id": "2",
+          "name": "Test2"
+        }
+      },
+      {
+        "id": "6",
+        "name": "Test6",
+        "organization": {
+          "id": "3",
+          "name": "Test3"
+        }
+      },
+      {
+        "id": "7",
+        "name": "Test7",
+        "organization": {
+          "id": "4",
+          "name": "Test4"
+        }
+      },
+      {
+        "id": "8",
+        "name": "Test8",
+        "organization": {
+          "id": "5",
+          "name": "Test5"
+        }
+      },
+      {
+        "id": "9",
+        "name": "Test9",
+        "organization": {
+          "id": "5",
+          "name": "Test5"
+        }
+      }
+    ]
+  }
+}
+
+##########################################################
+{
+  department(id: 1) {
+    id
+    name
+  }
+}
+Response:
+{
+  "data": {
+    "department": {
+      "id": "1",
+      "name": "Test1"
+    }
+  }
+}
+
+###############################################################
+{
+  departments {
+    id
+    name
+    organization {
+      id
+      name
+    }
+  }
+}
+
+
